@@ -8,7 +8,7 @@ module.exports = function firebaseCounter (options) {
     databaseURL: options.databaseURL,
     storageBucket: options.storageBucket
   })
-  const database = firebase.database()
+  const database = app.database()
   const seneca = this
 
   seneca.add('role:counter,cmd:add', (args, done) => {
