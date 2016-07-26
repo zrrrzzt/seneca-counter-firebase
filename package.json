@@ -1,6 +1,6 @@
 {
   "name": "seneca-counter-firebase",
-  "description": "Seneca counter for firebase",
+  "description": "Counter microservice with a firebase backend",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
@@ -9,9 +9,10 @@
     "url": "https://github.com/zrrrzzt"
   },
   "keywords": [
-    "url",
-    "status",
-    "http"
+    "seneca",
+    "microservice",
+    "counter",
+    "firebase"
   ],
   "repository": {
     "type": "git",
