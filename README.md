@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/zrrrzzt/seneca-counter-firebase.svg?branch=master)](https://travis-ci.org/zrrrzzt/seneca-counter-firebase)
+[![Coverage Status](https://coveralls.io/repos/zrrrzzt/seneca-counter-firebase/badge.svg?branch=master&service=github)](https://coveralls.io/github/zrrrzzt/seneca-counter-firebase?branch=master)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 # seneca-counter-firebase
 Counter microservice with a firebase backend
