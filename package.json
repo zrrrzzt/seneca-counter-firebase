@@ -1,0 +1,44 @@
+{
+  "name": "seneca-counter-firebase",
+  "description": "Seneca counter for firebase",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Geir Gåsodden",
+    "email": "geir.gasodden@pythonia.no",
+    "url": "https://github.com/zrrrzzt"
+  },
+  "keywords": [
+    "url",
+    "status",
+    "http"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/zrrrzzt/seneca-counter-firebase.git"
+  },
+  "bugs": {
+    "url": "http://github.com/zrrrzzt/seneca-counter-firebase/issues"
+  },
+  "homepage": "https://github.com/zrrrzzt/seneca-counter-firebase",
+  "engines": {
+    "node": ">=4.4.7"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && nsp check && tap --reporter=spec test/*.js",
+    "coverage": "tap test/*.js --coverage",
+    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
+    "setup": "npm install && node setup.js"
+  },
+  "devDependencies": {
+    "coveralls": "2.11.11",
+    "seneca": "2.1.0",
+    "standard": "7.1.2",
+    "tap": "6.2.0",
+    "nsp": "2.6.1"
+  },
+  "dependencies": {
+    "firebase": "3.2.0"
+  }
+}
