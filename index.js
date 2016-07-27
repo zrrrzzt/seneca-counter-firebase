@@ -5,8 +5,7 @@ module.exports = function firebaseCounter (options) {
   const app = firebase.initializeApp({
     apiKey: options.apiKey,
     authDomain: options.authDomain,
-    databaseURL: options.databaseURL,
-    storageBucket: options.storageBucket
+    databaseURL: options.databaseURL
   }, options.appName)
   const database = app.database()
   const seneca = this

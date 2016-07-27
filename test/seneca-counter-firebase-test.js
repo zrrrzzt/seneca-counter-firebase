@@ -1,7 +1,7 @@
 'use strict'
 
 const tap = require('tap')
-const Seneca = require('seneca')()
+const Seneca = require('seneca')({log: 'silent'})
 const senecaCounter = require('../index')
 const senecaCounterOptions = {
   databaseURL: 'https://seneca-firebase-test.firebaseio.com'
