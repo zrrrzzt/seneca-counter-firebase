@@ -4,7 +4,7 @@
 # seneca-counter-firebase
 Counter microservice with a firebase backend
 
-Work in progress
+## Work in progress!
 
 ## Usage
 
@@ -32,11 +32,45 @@ Seneca.listen(1337)
 call the service to add a value for a given key
 
 ```sh
-$ curl -d '{"role":"counter", "cmd":"add", "key": "tfk", "value": 2}' -v http://localhost:1337/act
+$ curl -d '{"role":"counter", "cmd":"add", "key": "test", "value": 2}' -v http://localhost:1337/act
 ```
 
-or to subtract
-
+or to subtract`a value for a given key
+``
 ```sh
-$ curl -d '{"role":"counter", "cmd":"subtract", "key": "tfk", "value": 2}' -v http://localhost:1337/act
+$ curl -d '{"role":"counter", "cmd":"subtract", "key": "test", "value": 2}' -v http://localhost:1337/act
 ```
+
+Lookup a key
+``
+```sh
+$ curl -d '{"role":"counter", "cmd":"get", "key": "test"}' -v http://localhost:1337/act
+```
+
+returns
+
+```javascript
+{success: true, key: 'test', value: 0} 
+```
+
+if no key is supplied it will use ```value``` as key
+
+## Patterns handled
+### ```role:counter,cmd:add```
+
+```javascript
+Seneca.act('role:counter, cmd:add', {key: 'test', value: 2}, (error, data) => {})
+```
+
+### ```role:counter,cmd:subtract```
+
+```javascript
+Seneca.act('role:counter, cmd:subtract', {key: 'test', value: 2}, (error, data) => {})
+```
+
+### ```role:counter,cmd:get```
+
+```javascript
+Seneca.act('role:counter, cmd:get', {key: 'test'}, (error, data) => {})
+```
+

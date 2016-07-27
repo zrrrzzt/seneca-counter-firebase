@@ -11,7 +11,7 @@ module.exports = function firebaseCounter (options) {
   const database = app.database()
   const seneca = this
 
-  seneca.add('role:counter,cmd:add', (args, done) => {
+  seneca.add('role:counter, cmd:add', (args, done) => {
     const value = parseInt(args.value || 1, 10)
     const valueRef = database.ref(args.key || 'value')
     valueRef.transaction((currentVal) => {
@@ -20,13 +20,22 @@ module.exports = function firebaseCounter (options) {
     done(null, {success: true, value: value})
   })
 
-  seneca.add('role:counter,cmd:subtract', (args, done) => {
+  seneca.add('role:counter, cmd:subtract', (args, done) => {
     const value = parseInt(args.value || 1, 10)
     const valueRef = database.ref(args.key || 'value')
     valueRef.transaction((currentVal) => {
       return currentVal - value
     })
     done(null, {success: true, value: value})
+  })
+
+  seneca.add('role:counter, cmd:get', (args, done) => {
+    const selectedKey = args.key || 'value'
+
+    database.ref(selectedKey).once('value').then(function (snapshot) {
+      const value = snapshot.val()
+      done(null, {success: true, key: selectedKey, value: value})
+    })
   })
 
   return options.tag || 'seneca-counter-firebase'
