@@ -4,7 +4,8 @@ const tap = require('tap')
 const Seneca = require('seneca')({log: 'silent'})
 const senecaCounter = require('../index')
 const senecaCounterOptions = {
-  databaseURL: 'https://seneca-firebase-test.firebaseio.com'
+  databaseURL: 'https://seneca-firebase-test.firebaseio.com',
+  appName: new Date().getTime().toString()
 }
 
 Seneca.use(senecaCounter, senecaCounterOptions)
