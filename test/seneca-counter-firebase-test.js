@@ -5,9 +5,8 @@ const Seneca = require('seneca')({log: 'silent'})
 const senecaCounter = require('../index')
 const senecaCounterOptions = {
   databaseURL: 'https://seneca-firebase-test.firebaseio.com',
-  appName: new Date().getTime().toString()
+  appName: (new Date().getTime() * Math.random()).toString()
 }
-
 Seneca.use(senecaCounter, senecaCounterOptions)
 
 tap.test('It supports addition', (test) => {
@@ -44,7 +43,6 @@ tap.test('It supports get', (test) => {
   const payload = {
     key: 'test'
   }
-
   Seneca.act('role:counter, cmd:get', payload, (error, data) => {
     if (error) {
       throw error
