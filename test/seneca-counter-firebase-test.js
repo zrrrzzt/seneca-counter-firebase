@@ -7,9 +7,21 @@ const senecaCounterOptions = {
   databaseURL: 'https://seneca-firebase-test.firebaseio.com',
   appName: (new Date().getTime() * Math.random()).toString()
 }
+
+var counter = 0
+const total = 3
+
+const finished = () => {
+  counter++
+  if (counter === total) {
+    tap.end()
+    process.exit(0)
+  }
+}
+
 Seneca.use(senecaCounter, senecaCounterOptions)
 
-tap.test('It supports addition', (test) => {
+tap.test('It supports addition', (childTest) => {
   const payload = {
     key: 'test',
     value: 2
@@ -20,11 +32,12 @@ tap.test('It supports addition', (test) => {
       throw error
     }
     tap.equal(payload.value, data.value, 'Correct value added')
-    test.done()
+    childTest.done()
+    finished()
   })
 })
 
-tap.test('It supports subtraction', (test) => {
+tap.test('It supports subtraction', (childTest) => {
   const payload = {
     key: 'test',
     value: 2
@@ -35,11 +48,12 @@ tap.test('It supports subtraction', (test) => {
       throw error
     }
     tap.equal(payload.value, data.value, 'Correct value subtracted')
-    test.done()
+    childTest.done()
+    finished()
   })
 })
 
-tap.test('It supports get', (test) => {
+tap.test('It supports get', (childTest) => {
   const payload = {
     key: 'test'
   }
@@ -50,6 +64,7 @@ tap.test('It supports get', (test) => {
     const value = data.hasOwnProperty('value')
     tap.equal(payload.key, data.key, 'Correct key looked up')
     tap.ok(value, 'Data has property value')
-    test.done()
+    childTest.done()
+    finished()
   })
 })
