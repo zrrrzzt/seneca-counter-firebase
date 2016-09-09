@@ -7,6 +7,13 @@ module.exports = function firebaseCounter (options) {
     authDomain: options.authDomain,
     databaseURL: options.databaseURL
   }, options.appName)
+
+  if (options.authEmail && options.authPassword) {
+    app.auth().signInWithEmailAndPassword(options.authEmail, options.authPassword).catch(error => {
+      return error
+    })
+  }
+
   const database = app.database()
   const seneca = this
 
@@ -31,7 +38,7 @@ module.exports = function firebaseCounter (options) {
   seneca.add('role:counter, cmd:get', (args, done) => {
     const selectedKey = args.key || 'value'
 
-    database.ref(selectedKey).once('value').then(function (snapshot) {
+    database.ref(selectedKey).once('value').then(snapshot => {
       const value = snapshot.val()
       done(null, {success: true, key: selectedKey, value: value})
     })

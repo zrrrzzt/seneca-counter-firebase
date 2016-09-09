@@ -8,12 +8,12 @@ A counter plugin for the [Seneca](http://senecajs.org/) microservices toolkit wi
 
 From npm
 
-```
+```sh
 $ npm i --save seneca-counter-firebase
 ```
 
 ## Messages handled
-### ```role:counter,cmd:add```
+### ```role:counter, cmd:add```
 Adds a value to the given key. 
 Uses ```value``` as key if no key supplied.
 Defaults to 1 if no value is presented.
@@ -21,7 +21,7 @@ Defaults to 1 if no value is presented.
 Seneca.act('role:counter, cmd:add', {key: 'test', value: 2}, (error, data) => {})
 ```
 
-### ```role:counter,cmd:subtract```
+### ```role:counter, cmd:subtract```
 Subtracts a value from the given key. 
 Uses ```value``` as key if no key supplied.
 Defaults to 1 if no value is presented.
@@ -29,7 +29,7 @@ Defaults to 1 if no value is presented.
 Seneca.act('role:counter, cmd:subtract', {key: 'test', value: 2}, (error, data) => {})
 ```
 
-### ```role:counter,cmd:get```
+### ```role:counter, cmd:get```
 Get the value from a given key. 
 Uses ```value``` as key if no key supplied.
 ```javascript
@@ -42,7 +42,11 @@ Seneca.act('role:counter, cmd:get', {key: 'test'}, (error, data) => {})
 
 ## Example
 
-```javascript
+If your Firebase database is completely open (rules) you can drop apiKey, authDomain, authEmail and authPassword from your config.
+
+If yoy want restrictions this module supports Firebase's email/password sign-in.
+
+```JavaScript
 'use strict'
 
 const Seneca = require('seneca')()
@@ -52,7 +56,9 @@ const senecaCounterOptions = {
   apiKey: '<your-firebase-api-key>',
   authDomain: '<your-firebase-auth-domain>',
   databaseURL: '<your-firebase-database-url>', // Required
-  appName: '<your-firebase-app-name>'
+  appName: '<your-firebase-app-name>',
+  authEmail: '<your-firebase-user-email>',
+  authPassword: '<your-firebase-user-password>'
 }
 
 Seneca.use(senecaCounter, senecaCounterOptions)
@@ -81,7 +87,7 @@ $ curl -d '{"role":"counter", "cmd":"get", "key": "test"}' -v http://localhost:1
 
 returns
 
-```javascript
+```JavaScript
 {success: true, key: 'test', value: 0} 
 ```
 
