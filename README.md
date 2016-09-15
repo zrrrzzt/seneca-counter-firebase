@@ -67,7 +67,9 @@ Seneca.listen(1337)
 
 ```
 
-call the service to add a value for a given key
+### Curl
+
+Call the service to add a value for a given key
 
 ```sh
 $ curl -d '{"role":"counter", "cmd":"add", "key": "test", "value": 2}' -v http://localhost:1337/act

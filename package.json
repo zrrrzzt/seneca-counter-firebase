@@ -1,7 +1,7 @@
 {
   "name": "seneca-counter-firebase",
   "description": "Counter microservice with a firebase backend",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "author": {
     "name": "Geir Gåsodden",
