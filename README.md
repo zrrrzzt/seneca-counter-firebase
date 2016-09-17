@@ -17,7 +17,7 @@ $ npm i --save seneca-counter-firebase
 Adds a value to the given key. 
 Uses ```value``` as key if no key supplied.
 Defaults to 1 if no value is presented.
-```javascript
+```JavaScript
 Seneca.act('role:counter, cmd:add', {key: 'test', value: 2}, (error, data) => {})
 ```
 
@@ -25,14 +25,14 @@ Seneca.act('role:counter, cmd:add', {key: 'test', value: 2}, (error, data) => {}
 Subtracts a value from the given key. 
 Uses ```value``` as key if no key supplied.
 Defaults to 1 if no value is presented.
-```javascript
+```JavaScript
 Seneca.act('role:counter, cmd:subtract', {key: 'test', value: 2}, (error, data) => {})
 ```
 
 ### ```role:counter, cmd:get```
 Get the value from a given key. 
 Uses ```value``` as key if no key supplied.
-```javascript
+```JavaScript
 Seneca.act('role:counter, cmd:get', {key: 'test'}, (error, data) => {})
 ```
 
