@@ -2,10 +2,14 @@
 
 const tap = require('tap')
 const Seneca = require('seneca')({log: 'silent'})
-const senecaCounter = require('../index')
+const senecaCounter = require('../../index')
 const senecaCounterOptions = {
+  apiKey: 'AIzaSyCLOgh_XMHbOymgY4qBu4Rv9-tZP6xvNAc',
+  authDomain: 'seneca-firebase-test.firebaseapp.com',
   databaseURL: 'https://seneca-firebase-test.firebaseio.com',
-  appName: (new Date().getTime() * Math.random()).toString()
+  appName: (new Date().getTime() * Math.random()).toString(),
+  authEmail: 'seneca-test@gasodden.net',
+  authPassword: 'seneca-test-password'
 }
 
 var counter = 0
