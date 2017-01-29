@@ -16,10 +16,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/zrrrzzt/seneca-counter-firebase.git"
+    "url": "https://github.com/zrrrzzt/seneca-counter-firebase.git"
   },
   "bugs": {
-    "url": "http://github.com/zrrrzzt/seneca-counter-firebase/issues"
+    "url": "https://github.com/zrrrzzt/seneca-counter-firebase/issues"
   },
   "homepage": "https://github.com/zrrrzzt/seneca-counter-firebase",
   "engines": {
