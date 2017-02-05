@@ -34,7 +34,7 @@
     "standard-fix": "standard-fix"
   },
   "devDependencies": {
-    "coveralls": "2.11.14",
+    "coveralls": "2.11.16",
     "seneca": "3.2.2",
     "standard": "8.6.0",
     "tap": "10.0.0",
