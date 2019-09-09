@@ -36,7 +36,7 @@
   "devDependencies": {
     "coveralls": "3.0.6",
     "seneca": "3.14.1",
-    "standard": "12.0.1",
+    "standard": "14.1.0",
     "tap": "14.6.1",
     "nsp": "3.2.1"
   },
