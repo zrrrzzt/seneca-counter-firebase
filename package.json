@@ -37,7 +37,7 @@
     "coveralls": "3.0.11",
     "seneca": "3.20.2",
     "standard": "14.3.3",
-    "tap": "14.10.6",
+    "tap": "14.10.7",
     "nsp": "3.2.1"
   },
   "dependencies": {
