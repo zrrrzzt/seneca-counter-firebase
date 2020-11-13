@@ -41,6 +41,6 @@
     "nsp": "3.2.1"
   },
   "dependencies": {
-    "firebase": "8.0.1"
+    "firebase": "8.0.2"
   }
 }
